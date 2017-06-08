@@ -1,13 +1,28 @@
 package com.cc.utils;
 
-import android.support.v7.app.AppCompatActivity;
 import android.os.Bundle;
+import android.support.v7.app.AppCompatActivity;
+import android.view.View;
 
-public class MainActivity extends AppCompatActivity {
+import com.cc.utils.thread.TXThreadDemoActivity;
+
+public class MainActivity extends AppCompatActivity implements View.OnClickListener {
 
     @Override
     protected void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
         setContentView(R.layout.activity_main);
+
+        findViewById(R.id.btn_thread_demo).setOnClickListener(this);
+    }
+
+    @Override
+    public void onClick(View v) {
+        switch (v.getId()) {
+            case R.id.btn_thread_demo: {
+                TXThreadDemoActivity.launch(this);
+                break;
+            }
+        }
     }
 }
